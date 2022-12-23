@@ -1,5 +1,5 @@
 # Kalman Filter to Track Vehicle Location
-This repository is the implementation of the [Example 9 – vehicle location estimation](https://www.kalmanfilter.net/multiExamples.html) 
+This repository is the implementation of the [Example 9 – vehicle location estimation](https://www.kalmanfilter.net/multiExamples.html). Thanks to them for making it easy to understand the kalman filter!  
 
 # Pre-reqs
  1. Eigen library
@@ -22,11 +22,11 @@ This repository is the implementation of the [Example 9 – vehicle location est
 Tested on Ubuntu 20.04.
 
 # Results
-Try to play around with the process noise matrix Q and the measurement noise matrix R to see the different behaviors of the filter.
-Additionally you can try different measurements to test the performance of filter.
+Try to play around with the process noise variance and the measurement noise variance to see the different behaviors of the filter.
+Additionally you can try different measurements (linear and non-linear) to test the performance of filter.
 
 #### Low Process Noise & Low Measurement Noise (Acceleration variance: 0.2 m/s2, Measurement variance: 1 m) 
-Our assumption for he process model was that the system has zero acceleration but our measurements are very curvy which go against the model assumption. A low process noise here means that the filter diverges becasue it was designed for a zero acceleration model.
+Our assumption for the process model was that the system has zero acceleration (linear model) but our measurements are very curvy (non-linear) which go against the model assumption. A low process noise here means that the filter diverges becasue it was designed for a zero acceleration model.
 
 ![image](https://user-images.githubusercontent.com/23505408/209317521-d2c5005c-ab18-4ec2-8522-160316c33331.png)
 
@@ -36,7 +36,7 @@ The low process noise was already making the filter diverge, a high measurement 
 
 #### High Process Noise & Low Measurement Noise (Acceleration variance: 2 m/s2, Measurement variance: 1 m) 
 
-Better tracking because the process noise is high. The process noise is high because of the choice of sinusoidal measurements which does not fit well with the choice of a linear process model (zero acceleration).
+Better tracking because the process noise is high. The process noise is high because of the choice of sinusoidal measurements (non-linear) which does not fit well with the choice of a linear process model (zero acceleration).
 
 ![image](https://user-images.githubusercontent.com/23505408/209318082-f6019ccf-f3f6-4aaa-956a-cf0a8f3062b9.png)
 
