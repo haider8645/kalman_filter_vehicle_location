@@ -11,7 +11,6 @@ set(SOURCES FilterPosition2D.cpp)
 
 add_library(kalman_filter_robot_location STATIC ${SOURCES})
 
-add_subdirectory(matplotplusplus)
 add_executable(kalman_filter_robot_location_bin Main.cpp)
 target_include_directories(kalman_filter_robot_location_bin PUBLIC ${HEADERS})
 target_link_libraries(kalman_filter_robot_location_bin PUBLIC 

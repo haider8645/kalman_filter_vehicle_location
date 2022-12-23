@@ -46,9 +46,9 @@ int main(int argc, char** argv)
     //The example on the webpage linked above assumes a straight line motion with a turn. Our measurements follow the sinusoidal pattern
     //and include sharp turns which make the initial assumption of a constant accelerating system false. To compensate for this, we can
     //assign a large variance to the process noise matrix and a lower value to the measurement matrix. 
-    Q = 0.04*Q; // Acceleration variance = 2 m/s^2      
-    R << 1,0,   // Measurement variance = 1 m    
-         0,1; 
+    Q = 4*Q; // Acceleration variance = 2 m/s^2      
+    R << 9,0,   // Measurement variance = 3 m    
+         0,9; 
     //You can try to increase the R value to the one shown in the example and see that the filter diverges after a few turns. The reason is that
     //our model is a linear model so its predicaton is not accurate which means that it has a high process noise. Now, on top of that, if we have
     //a high measurement variable as well like R = [9 0; 0 9] then the filter diverges.     
@@ -72,10 +72,13 @@ int main(int argc, char** argv)
         result_x.push_back(state(0));      
         result_y.push_back(state(3));    
     }
-
     plot(measurement_x, measurement_y, "-o");
     hold(on);
     plot(result_x, result_y, "-");
+    title("2-D Vehicle Location Tracking");
+    xlabel("Location-x");
+    ylabel("Location-y");
+    legend("Measurements", "Pedictions");
     show();
 
     return 0;
