@@ -15,7 +15,7 @@ This repository is the implementation of the [Example 9 – vehicle location est
 >    cd kalman_filter_vehicle_location \
 >    mkdir build && cd build \
 >    cmake .. \
->    make
+>    make \
 >    ./kalman_filter_robot_location_bin
 
 ### Note:
